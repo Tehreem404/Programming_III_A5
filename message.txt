@@ -1,0 +1,77 @@
+import java.util.HashMap;
+
+/**
+ * This class has a word list that is used to store the words. It provides some functionality such as to add
+ * a word to the list, count a number of time a word that is in the list, and remove all
+ * words in the list.
+ */
+public class WordCount {
+
+    //HashMap collection to store words
+    public HashMap<String, Integer> wordList;
+    private String[] wordSplit;
+
+    /**
+     * This constructor initializes the wordList 
+     */
+    public WordCount() {
+        this.wordList = new HashMap<>();
+    }
+
+    /**
+     * This constructor initializes the word list to the words in the string,
+     * separated by spaces.if String words is null or empty, initialize wordList
+     * to be empty HashMap.
+     * @param a String of words
+     */
+    public WordCount(String words) {
+        if (words == null){
+            this.wordList = new HashMap<>();
+        } else {
+            this.wordSplit = words.split(" ");
+            for (String word: this.wordSplit){
+                System.out.println("for->word == " + word);
+                this.wordList.put(word, 1 + this.countWord(word));
+            }
+        }
+    }
+
+    /**
+     * This method adds a word to the list of words stored by the object. If
+     * String toAdd is null or empty, do not add to the word list. 
+     * @param toAdd
+     */
+    public void addWord(String toAdd) {
+        if (toAdd != null || toAdd != ""){
+            this.wordList.put(toAdd, this.countWord(toAdd) + 1);
+        }
+    }
+
+    /**
+     * This method removes all words from the list of words stored by the object
+     */
+    public void startOver() {
+        this.wordList.clear();
+    }
+
+    /**
+     * This method returns an integer representing the number of times that a word is
+     * in the list of words stored by the object. If the String word is null or
+     * empty return 0
+     * @param the word to be checked for number of time that in the list of words
+     * @return the number of times a word is in the list
+     */
+    public int countWord(String word) {
+        int counter = 0;
+        if (word == null || word == ""){
+            return 0;
+        }
+        System.out.println("word == " + word);
+        if(this.wordList.containsKey(word)){
+            return this.wordList.get(word);
+        }
+        //"test hello hello" -> ("test", 1), ("hello", 2)
+        return 0;
+    }
+
+}

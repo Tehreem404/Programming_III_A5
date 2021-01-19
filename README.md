@@ -8,27 +8,24 @@
 [DESCRIPTION]
 
     This program will do basic structure (hashtables) algorithms
-      1. Read a key
-      2. Read a value
-      3. Read keyval
-      4. Wite empty
-      5. Get capacity
-      6. Write to an index
-      7. Read an index
-      8. Get rid of a hash
+      1. Create table
+      2. Add element
+      3. Free table
+      4. Get index
+      5. Get element
+      6. Remove element
+      7. Hash accuracy
+      8. Rehash
 
 [USAGE]
 
     Example make: make
-    Example execute: ./buildidx
-                     ./actors
+    Example execute: ./htest[1-4]
 
 [FILENAMES]
 
-    key2val.c
-    val2key.c
-    util.c
-    util.h
+    hash.c
+    hash.h
     
 
 
